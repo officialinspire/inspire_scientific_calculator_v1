@@ -1,0 +1,254 @@
+:root {
+  --bg-color: #0f0f0f;
+  --cont-color: #121212;
+  --black: #000;
+  --gris: #00ffcc;
+  --white: #00ffcc;
+  --display: #76ad8b;
+  --btn-action: #fd1258;
+  --git-chendo: #00ffcc;
+  --text-display: #000; /* New variable for display text color */
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Overriding body styles to work with the sidebar */
+body {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #00ffcc;
+  font-family: 'Segoe UI', monospace;
+  overflow-x: hidden;
+}
+
+/* Calculator specific container */
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 120px; /* Space for sidebar */
+  padding: 20px;
+  min-height: calc(100vh - 200px); /* Account for header and footer */
+}
+
+.calculator-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.inspire-logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.calculator-title span {
+  color: #00ffcc;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+/* Main calculator container */
+.container-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*<-------->*/
+/*turn on off*/
+.turn-on-off {
+  visibility: hidden;
+}
+
+/*<---------->*/
+/*Fields show*/
+.field-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  color: var(--white);
+}
+
+.field-name span {
+  color: var(--display);
+}
+
+.back-op {
+  background-color: var(--cont-color);
+  padding: .5em;
+  border-radius: .3em;
+  width: 15.7em;
+  border: .01em double var(--gris);
+  box-shadow: 2px 2px 8px rgba(0, 255, 204, 0.3);
+}
+
+.field-result {
+  background-color: var(--display);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: .3em 0;
+  width: 100%;
+  height: 3.3em;
+  color: var(--text-display); /* Change text color to black */
+}
+
+/*animation cursor field*/
+.show-op { /* left display field*/
+  padding-left: .4em;
+  width: 15em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--text-display); /* Making sure text is black */
+}
+
+.show-op::after {
+  content: '│';
+  color: var(--black);
+  animation: .9s animated infinite;
+  -webkit-animation: .9s animated infinite;
+}
+
+@keyframes animated {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/*<---------------->*/
+.field-result input {
+  background-color: transparent;
+  padding-left: .4em;
+  user-select: none;
+  border: none;
+  outline: none;
+  color: var(--text-display); /* Change input text color to black */
+}
+
+.show-result {
+  margin: 0 .4em;
+  align-self: flex-end;
+  user-select: none;
+  color: var(--text-display); /* Change result text color to black */
+}
+
+/*>-----show end------<*/
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  width: 100%; /* Ensure container takes full width */
+}
+
+.container-one {
+  display: grid;
+  grid-template-columns: repeat(6, 41.7px);
+  margin-bottom: .5em;
+  justify-content: center; /* Center the grid */
+}
+
+.container-two {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  justify-content: center; /* Center the grid */
+}
+
+button {
+  background-color: var(--cont-color);
+  border-top: 1px solid #00ffcc;
+  border-left: 1px solid #00ffcc;
+  border-right: none;
+  border-bottom: none;
+  box-shadow: 1px 1px 3px #00ffcc;
+  color: var(--white);
+}
+
+button:active {
+  background-color: #1a1a1a;
+  box-shadow: 0px 0px 5px #00ffcc;
+}
+
+button.btn {
+  width: 2em;
+  height: 1em;
+  border-radius: 1em;
+}
+
+.btn-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-column span {
+  font-size: .6em;
+  text-align: center;
+  color: var(--white);
+}
+
+.btn {
+  padding: .5em;
+  margin: .2em;
+  cursor: pointer;
+}
+
+.btn-replay {
+  position: relative;
+  width: 5.5em;
+  height: 4em;
+  border-radius: 3em 3em 5em 5em;
+}
+
+/* btn scientific calculator*/
+.btn-cs {
+  padding: .1em;
+  margin: .3em;
+  border-radius: .4em;
+  cursor: pointer;
+}
+
+.opacity {
+  visibility: hidden;
+}
+
+/*btn math*/
+.btn-math {
+  padding: .5em;
+  margin: .2em;
+  border-radius: .5em 0 .5em 0;
+  cursor: pointer;
+}
+
+.btn-action {
+  background-color: var(--btn-action);
+}
+
+/* Specific styles for the inherited sidebar and header */
+/* These will complement the existing styles from ../css/styles.css */
+.inspire-header {
+  margin-left: 120px;
+}
+
+/* Ensure calculator fits well with sidebar layout */
+@media (max-width: 768px) {
+  .calculator-container {
+    margin-left: 0;
+    padding: 10px;
+  }
+  
+  .inspire-header {
+    margin-left: 0;
+    flex-direction: column;
+  }
+}
